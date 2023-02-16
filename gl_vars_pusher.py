@@ -11,7 +11,7 @@ def parse_env() -> dict:
                 # Empty line or comments
                 continue
             var = t.split('=')[0]
-            val = t.split('=')[1]
+            val = t.split(t.split('=')[0])[1:]
             result.update({var:val})
             ins_str = '- echo '+var+'=${'+var+'} >> .env\n'
             ins_file.write(ins_str)
